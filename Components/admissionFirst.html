@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Mystyles/beautify.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid ">
+            <a class="navbar-brand" title="colege name" href="#">SGBIT</a>
+            <div class="center">
+
+                <div class="nav-item center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-person-circle m-2" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg>
+                    <a class="nav-link" href="#" id="user"></a>
+                </div>
+                <div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse  justify-content-between" id="navbarNav">
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../Components/home_page.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" id="admission" href="../Components/admission.html">Admission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="admission" href="../Components/get_1_fees_details.html">Fees
+                                Payment</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" id="login_nav">
+                            <a class="nav-link d-none" aria-disabled="true" aria-current="page"
+                                href="../Components/login.html">Login</a>
+                        </li>
+                        <li class="nav-item d-none" id="sign_up_nav">
+                            <a class="nav-link" href="../Components/sign_up.html">Sign-Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item" id="logout_nav">
+                            <a class="nav-link" aria-disabled="true" aria-current="page" href="#" id="logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </nav>
+
+    <div class="container-fluid main_body ">
+        <div class="container-fluid glass_blur">
+
+            <h3 class="h3 text-center text-warning p-1">Admission For The Year <span id="year"> 2025</span></h3>
+            <hr>
+            <div class="container center flex-wrap gap-4">
+                <!-- <a href="../Components/work.html">
+                    <h4 class="text-danger">work</h4>
+                </a> -->
+
+                <div class="box step-1 gap-3 center-2 p-2 rounded ">
+                    <div class="center-2 border rounded box_in  w-100  ">
+                        <strong class="mb-2"><U>Step-1</U></strong>
+                        <h4 class="text-danger"> Student Details</h4>
+
+                        <p>Fill The Details </p>
+
+                    </div>
+                    <div class="box_in_2 center-2 border w-100 border-dark  rounded m-1">
+
+                        <label for="apply"><small>Click Here to apply</small></label>
+
+                        <span class="text-center">
+                            <a class="text-dark ">
+                                <button id="apply_first_1" class="btn btn-sm btn-warning m-3">
+                                    <b>
+
+                                        Apply
+                                    </b>
+                                </button>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="box step-1 gap-3 center-2 rounded p-2">
+                    <div class="center-2 border rounded box_in   w-100   h-75">
+                        <strong class="mb-2"><U>Step-2</U></strong>
+
+                        <h4 class="text-danger"> Education Details</h4>
+                        <p>First Year entry</p>
+                    </div>
+                    <div class="box_in_2 center-2 border w-100 border-dark  rounded m-1">
+
+                        <label for="apply"><small>Click Here to apply</small></label>
+                        <span class="text-center">
+                            <a class=" text-dark">
+                                <button id="apply_first_2" class="btn btn-sm btn-warning font-weight-bold m-3">
+                                    <b>
+
+                                        Apply
+                                    </b>
+                                </button>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="box step-1 gap-3 center-2 rounded p-2">
+                    <div class="center-2 border rounded box_in  w-100   h-75">
+                        <strong class="mb-2"><U>Step-3</U></strong>
+
+                        <h4 class="text-danger"> Student Bank Details</h4>
+                        <h6>Fill Bank details </h6>
+                    </div>
+                    <div class="box_in_2 center-2 border w-100 border-dark  rounded m-1">
+
+                        <label for="apply"><small>Click Here to Check</small></label>
+                        <span class="text-center">
+                            <a class=" text-dark">
+                                <button id="apply_first_3" class="btn btn-sm btn-warning font-weight-bold m-3">
+                                    <b>
+
+                                        Apply
+                                    </b>
+                                </button>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="box step-1 gap-3 center-2  rounded p-2">
+                    <div class="center-2 border rounded box_in  w-100   h-75">
+                        <strong class="mb-2"><U>Step-4</U></strong>
+
+                        <h4 class="text-danger"> Student Admission Details</h4>
+                        <h6>Fill Bank details </h6>
+                    </div>
+                    <div class="box_in_2 center-2 border w-100 border-dark  rounded m-1">
+
+                        <label for="apply"><small>Click Here to Check</small></label>
+                        <span class="text-center">
+                            <a class=" text-dark">
+                                <button id="apply_first_4" class="btn btn-sm btn-warning font-weight-bold m-3">
+                                    <b>
+
+                                        Apply
+                                    </b>
+                                </button>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="box step-1 gap-3 center-2 rounded p-2">
+                    <div class="center-2 border rounded box_in  w-100    h-75">
+                        <strong class="mb-2"><U>Step-5</U></strong>
+
+                        <h4 class="text-danger"> Parent Declaration</h4>
+                        <p>First Year</p>
+
+                    </div>
+                    <div class="box_in_2 center-2 border w-100 border-dark  rounded m-1">
+
+                        <label for="apply"><small>Click Here to apply</small></label>
+                        <span class="text-center ">
+                            <a class=" text-dark   ">
+                                <button id="apply_first_5" class="btn btn-sm btn-warning font-weight-bold  k m-3"><b>
+
+                                        Apply
+                                    </b>
+                                </button>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.session.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="../MyScripts/main.js"></script>
+    <script src="../MyScripts/admission.js"></script>
+</body>
+
+</html>

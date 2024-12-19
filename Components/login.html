@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Mystyles/beautify.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg y">
+        <div class="container-fluid">
+            <a class="navbar-brand" title="colege name" href="#">SGBIT</a>
+            <div class="center">
+                <div class="nav-item center ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-person-circle m-2" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg><a class="nav-link" href="#" id="user"></a>
+                </div>
+                <div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse  justify-content-between" id="navbarNav">
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../Components/home_page.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item d-none">
+                            <a class="nav-link" href="#">Admission</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" id="login_nav">
+                            <a class="nav-link" aria-disabled="true" aria-current="page"
+                                href="../Components/login.html">Login</a>
+                        </li>
+                        <li class="nav-item" id="sign_up_nav">
+                            <a class="nav-link" href="../Components/sign_up.html">Sign-Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <!-- <li class="nav-item" id="logout_nav">
+                            <a class="nav-link" aria-disabled="true" aria-current="page" href="#" id="logout">Logout</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <div class="center flex-column main_body ">
+        <div>
+
+
+            <div class="container-fluid outer_1 login">
+                <h3 class="text-center p-1">Login </h3>
+                <hr>
+                <div class="container inner_1 p-2">
+                    <form class="row g-3">
+                        <div class="col-md-12">
+                            <label for="Register_id" class="form-label"><b>USN / Register ID :</b></label>
+                            <input required type="text" class="form-control" id="Register_id">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="user_type" class="form-label"><b>User Type :</b></label>
+                            <select required id="user_type" class="form-select">
+                                <option selected>Student</option>
+                                <option>Admin</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="password" class="form-label"><b> Password : </b></label>
+                            <input required type="password" class="form-control" id="password">
+                        </div>
+                        <div class="center flex-column">
+                            <span class="text-danger">forgot password ?</span>
+                            <button class="btn btn-sm m-2  btn-info  w-25  text-white" id="login">Login</button>
+                        </div>
+
+                    </form>
+
+                </div>
+                <hr>
+                <p class="text-center text-success">
+                    <span> <a href="../Components/sign_up.html"> Register / Sign-up</a></span> <br>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.session.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script defer src="../MyScripts/login.js"></script>
+    <script defer src="../MyScripts/main.js"></script>
+    <script>
+
+        // const login = () => {
+        //     let id = document.getElementById("Register_id").value
+        //     let pass = document.getElementById("password").value
+        //     let user = document.getElementById("user").value
+        //     if (id == "" || pass == "" || user == "") {
+        //         alert("Fill all details correctly")
+        //     }
+        //     alert(id + pass + user)
+        // }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

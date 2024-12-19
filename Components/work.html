@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <a class="navbar-brand" title="colege name" href="#">SGBIT</a>
+            <div class="center">
+                <div class="nav-item list-group-item m-2"><a class="nav-link" href="#" id="user">Guest</a></div>
+                <div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+            </div>
+            <div class="collapse navbar-collapse  justify-content-between" id="navbarNav">
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../Components/home_page.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="admission" href="../Components/admission.html">Admission</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" id="login_nav">
+                            <a class="nav-link" aria-disabled="true" aria-current="page"
+                                href="../Components/login.html">Login</a>
+                        </li>
+                        <li class="nav-item" id="sign_up_nav">
+                            <a class="nav-link" href="../Components/sign_up.html">Sign-Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item" id="logout_nav">
+                            <a class="nav-link" aria-disabled="true" aria-current="page" href="#" id="logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div class="main_bodsy">
+        <h1>Work Under Progress</h1>
+        <button class="btn btn-outline-danger" onclick="allow(1)">
+            allow 1
+        </button>
+        <button class="btn btn-outline-danger" onclick="allow(2)">
+            allow 2
+        </button>
+        <button class="btn btn-outline-danger" onclick="allow(3)">
+            allow 3
+        </button>
+        <button class="btn btn-outline-danger" onclick="allow(4)">
+            allow 4
+        </button>
+        <button class="btn btn-outline-danger" onclick="allow(5)">
+            allow 5
+        </button>
+        <button class="btn btn-outline-danger" onclick="allow(6)">
+            allow 6
+        </button>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+<script src="../node_modules/jquery/dist/jquery.session.js"></script>
+
+<script>
+    function allow(no) {
+        switch (no) {
+            case 1:
+                sessionStorage.setItem("first_step", "true")
+                break
+            case 2:
+                sessionStorage.setItem("second_step", "true")
+                break
+            case 3:
+                sessionStorage.setItem("third_steps", "true")
+                break
+            case 4:
+                sessionStorage.setItem("fourth_step", "true")
+                break
+            case 5:
+                sessionStorage.setItem("fifth_step", "true")
+                break
+            case 6:
+                sessionStorage.setItem("sixth_step", "true")
+                break
+
+        }
+        alert("allowed status")
+    }
+</script>
+
+</html>

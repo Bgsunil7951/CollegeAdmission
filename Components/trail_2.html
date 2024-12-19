@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Mystyles/beautify.css">
+    <title>Document</title>
+    <style>
+        * {
+            font-size: 15pt;
+        }
+
+        .heading {
+            text-shadow: 2px 2px 4px rgb(97, 97, 97);
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 540;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box_28 {
+            margin-left: 0;
+        }
+
+        .photo {
+            max-width: 250px;
+            max-height: 300px;
+        }
+
+        canvas {
+            width: 220px;
+            min-height: 200px;
+            background-repeat: no-repeat;
+            object-fit: cover;
+            background-size: cover;
+            opacity: 80%;
+            background-image: url(data:image/png;base64,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);
+        }
+
+
+        .tab {
+            display: none;
+            height: auto;
+            width: auto;
+            border-radius: 10px;
+
+        }
+
+        #Submit {
+            display: none;
+            background-color: rgb(70, 218, 70);
+        }
+
+        .step {
+            height: 20px;
+            width: 20px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.4;
+        }
+
+
+        .step.active {
+            opacity: 1;
+            background-color: #635b81;
+
+        }
+
+        .divDiploma {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <a class="navbar-brand" title="colege name" href="#">SGBIT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid border ">
+        <h2 class="text-center h2 heading">ADMISSION FORM</h2>
+        <form id="regForm" class="form-control m-1 p-1 row g-3  border ">
+
+
+            <div class="tab ">
+
+                <div class="d-flex p-1 flex-wrap gap-3 center">
+
+                    <div
+                        class="photo flex-shrink-1  center  border d-flex align-items-center flex-column  justify-content-center gap-2 ">
+                        <div class="center">
+                            <canvas id="canv1" class=" center  "> </canvas>
+                        </div>
+                        <div class="center  ">
+                            <input type="file" class="btn form-control  btn-sm w-75" multiple="false" accept="image/*"
+                                id="finput" onchange="upload()" required>
+                        </div>
+                    </div>
+
+                    <div class="col p-1 ">
+
+                        <div class="row mt-2 ">
+                            <div class="col-md-4">
+                                <label for="firstName" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Sushant" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="lastName" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Hakare" required>
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="stuPhone" class="form-label">Phone</label>
+                                <input type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" class="form-control" id="stuPhone"
+                                    placeholder="123-456-7890" required>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="fatherName" class="form-label">Father Name</label>
+                                <input type="text" class="form-control" id="fatherName" placeholder="father name"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="fatherPhone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                                    id="fatherPhone" placeholder="123-456-7890" required>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="motherName" class="form-label">Mother Name</label>
+                                <input type="text" class="form-control" id="motherName" placeholder="mother name"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="motherPhone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                                    id="motherPhone" placeholder="123-456-7890" required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-2">
+
+                    <div class="col-md-4">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-select" id="gender" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="bloodGroup" class="form-label">Blood Group</label>
+                        <input type="text" class="form-control" id="bloodGroup" required>
+                    </div>
+                </div>
+                <div class="row mt-2">
+
+                    <div class="col-md-6">
+                        <label for="aadhar" class="form-label">Aadhar Number</label>
+
+                        <input type="aadhar" class="form-control" id="aadhar" pattern="[0-9]{4}[0-9]{4}[0-9]{4}"
+                            placeholder="1234-1234-1234" aria-describedby="inputGroupPrepend2" required>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cast" class="form-label">Cast</label>
+                        <input type="text" class="form-control" id="cast" placeholder="religion" name="cast" required />
+                    </div>
+                </div>
+
+                <div class="col-md-12 ">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="123 mainrod area " required>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <label for="state" class="form-label">Select State</label>
+                        <select class="form-select" id="state" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>Karnataka</option>
+                            <option>Maharastra</option>
+                            <option>Kerala</option>
+                            <option>Tamilnadu</option>
+                            <option>Panjab</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="city name" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="zip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" pattern="[0-9]{6}" placeholder="123-456" id="zip"
+                            required>
+                    </div>
+                </div>
+
+
+                <hr>
+            </div>
+
+
+            <div class="tab ">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="admissionType" class="form-label">Admission Type</label>
+                        <select class="form-select" id="admissionType" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>KCET</option>
+                            <option>COMED K</option>
+                            <option>Management</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="registerNumber" class="form-label">Register Number</label>
+                        <input type="number" id="registerNumber" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="admissionYear" class="form-label">Admission Year</label>
+                        <input type="number" id="admissionYear" min="2020" max="2024" placeholder="2020"
+                            class="form-control" required>
+                    </div>
+
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="rank" class="form-label">Rank</label>
+                        <input type="number" id="rank" min="0" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select" id="category" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>2A</option>
+                            <option>2B</option>
+                            <option>3A</option>
+                            <option>3B</option>
+                            <option>Cat-1</option>
+                            <option>SC</option>
+                            <option>GM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr>
+                <h4 class="h4 text-center">PUC Details</h4>
+                <hr>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="pucregno" class="form-label">PUC Registered Number</label>
+                        <input type="text" class="form-control" placeholder="register number" id="pucregno" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pucpercentage" class="form-label">PUC Percentage</label>
+                        <input type="number" class="form-control" min="60" step=".10" max="100" id="pucpercentage"
+                            required>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <label for="collegename" class="form-label"> Name of the Board PUC Passed
+                        </label>
+                        <input type="text" class="form-control" id="collegename" required>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="collegestate" class="form-label">Select State</label>
+                        <select class="form-select" id="collegestate" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>Karnataka</option>
+                            <option>Maharastra</option>
+                            <option>Kerala</option>
+                            <option>Tamilnadu</option>
+                            <option>Panjab</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="passyear" class="form-label"> Passing Year
+                        </label>
+                        <input type="number" class="form-control" min="2020" placeholder="2020-24" max="2024"
+                            id="passyear" required>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <label for="physics" class="form-label">Physics</label>
+                            <input type="number" id="physics" class="form-control" value="0" placeholder="Max 100 Marks"
+                                max="100" min="0" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="mathemetics" class="form-label">Mathemetics</label>
+                            <input type="number" id="mathemetics" class="form-control" value="0"
+                                placeholder="Max 100 Marks" max="100" min="0" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="biology" class="form-label">Chemestry/Bio.Tech/Computer Science /
+                                Biology</label>
+                            <input type="number" id="biology" class="form-control" value="0" placeholder="Max 100 Marks"
+                                max="100" min="0" required>
+                        </div>
+
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <label for="totalMarks" class="form-label">Total Marks Obtained out of 300</label>
+                            <input type="number" id="totalMarks" class="form-control" placeholder="Max 100 Marks"
+                                max="100" readonly value="0">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="percentage" class="form-label">Percentage of 3 Subjects</label>
+                            <input type="number" id="percentage" class="form-control" placeholder="Max 100 Marks"
+                                max="100" readonly value="0" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="calculate">Press Button to calculate Percentage</label>
+                            <br>
+                            <div class="justify-content-around d-flex">
+                                <btn id="calculate" onclick="calculate()" class="btn btn-sm btn-danger mt-2">Calculate
+                                </btn>
+                                <btn id="clear" onclick="clearAll()" class="btn btn-sm btn-danger mt-2">Clear</btn>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="center justify-content-center gap-3 ">
+                    <label for="diploma" class="form-label">DIPLOMA/LATERAL ENTRY </label>
+                    <btn onclick="addDiploma()" class="btn btn-sm btn-outline-danger">Yes</btn>
+                    <btn onclick="delDiploma()" class="btn btn-sm btn-outline-danger">No</btn>
+                </div>
+
+                <div class="divDiploma">
+                    <h4 class="h4 text-center">Diploma Details</h4>
+                    <hr>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="diplomaBranch" class="form-label">Branch</label>
+                            <select class="form-select" id="diplomaBranch">
+                                <option selected disabled value="">Choose...</option>
+                                <option>Computer Science </option>
+                                <option>Electrical And Electronics</option>
+                                <option>Mechanical</option>
+                                <option>Civil</option>
+                                <option>Electronics and Communication</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="dipPassYear" class="form-label">Date of Passing</label>
+                            <input type="nuber" class="form-control" id="dipPassYear">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label for="dipCollegeName" class="form-label"> Name of the Board Diploma Passed
+                            </label>
+                            <input type="text" class="form-control" id="dipCollegeName">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <label for="dipSemMarks" class="form-label"> Total Marks (V & VI Sem)
+                            </label>
+                            <input type="number" class="form-control" id="dipSemMarks">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="dipSemPercentage" class="form-label"> Percentage (V & VI Sem)
+                            </label>
+                            <input type="number" class="form-control" id="dipSemPercentage">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="dcetRank" class="form-label"> DCET Rank
+                            </label>
+                            <input type="number" class="form-control" id="dcetRank">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="tab ">
+                <h4 class="h5 text-decoration-underline p-1 text-danger text-center">FAMILY BACKGROUND</h4><br>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="famFatherName" class="form-label">Father Name</label>
+                        <input type="text " class="form-control" id="famFatherName" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="famFatherOccupation" class="form-label">Occupation</label>
+                        <input type="text " class="form-control" id="famFatherOccupation" required>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="famMotherName" class="form-label">Mother Name</label>
+                        <input type="text " class="form-control" id="famMotherName" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="famMotherOccupation" class="form-label">Occupation</label>
+                        <input type="text " class="form-control" id="famMotherOccupation" required>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <label for="annualIncome" class="form-label">Annual income of Parent</label>
+                        <input type="number" class="form-control" id="annualIncome" required>
+                    </div>
+                </div>
+                <hr>
+                <h4 class="h5 text-center text-decoration-underline text-danger">STUDENT BANK DETAILS</h4>
+                <br>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="stuName" class="form-label"> Name as per bank</label>
+                        <input type="text " class="form-control" id="stuName" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="accountNumber" class="form-label">Account Number</label>
+                        <input type="number" class="form-control" id="accountNumber" required>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="bankName" class="form-label">Bank Name</label>
+                        <input type="text " class="form-control" id="bankName" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="bankBranch" class="form-label">Bank Branch </label>
+                        <input type="text" class="form-control" id="bankBranch" required>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="ifscCode" class="form-label">IFSC Code</label>
+                        <input type="text " class="form-control" id="ifscCode" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="bankState" class="form-label">Select State</label>
+                        <select class="form-select" id="bankState">
+                            <option selected disabled value="">Choose...</option>
+                            <option>Karnataka</option>
+                            <option>Maharastra</option>
+                            <option>Kerala</option>
+                            <option>Tamilnadu</option>
+                            <option>Panjab</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab ">
+                <h4 class="h5 text-decoration-underline p-1 text-danger text-center">DECLARATION BY THE CANDIDATE /
+                    PARENT</h4><br>
+                <div class="text  lh-base ">
+                    <ol>
+                        <li>
+                            I <input type="text" class="form-control w-25 m-1 d-inline " placeholder="Name of Parent"
+                                required> the parent of the applicant
+                            shall be responsible for the payment of tees and dues if any outstanding. I shall be
+                            responsible the parent of the applicant for his/her conduct behavior during the period of
+                            studies in the Institute, I shall also agree to the condition that my ward will not leave
+                            the course in meddle nor will he/she apply for transfer. In such an eventually I shall make
+                            good financial obligation to the Institute.
+                        </li><br>
+                        <li>
+                            I hereby agree to abide by the rules and regulations of the Institute/university and I
+                            undertake that so long as I am a student of the Institute, I shall do nothing either inside
+                            or outside the Institute that will bring down the reputation of the Institute.
+
+                        </li><br>
+                        <li>
+                            I hereby agree to make good for any loss or damage to books, apparatus furniture and other
+                            article belonging to the Institute which may caused by my carelessness or negligence on my
+                            part.
+                        </li><br>
+                        <li>
+                            I hereby agree that, I shall pay full fees prescribed for the course at the time of
+                            admission and for each subsequent admission in II, III, IV year of BE Program periodically
+                            and also other fees such as examination fees etc., whenever the notification is made by the
+                            Institute authorities.
+                        </li><br>
+                        <li>
+                            If admitted, I shall produce the migration certificate from my university / Board where I
+                            have studied last. I shall produce the Transfer Certificate before the prescribed date.
+                            Obtaining eligibility certificate from Visvesvaraya Technology University, Belagavi, is
+                            solely my responsibility.
+                        </li><br>
+                        <li>
+                            I have carefully read the application and I accept to abide by the terms and conditions
+                            mentioned therein and make no claims against the Institute or society.
+                        </li><br>
+                        <li>
+                            I hereby undertake that I will meet the attendance requirements as prescribed by the
+                            University.
+                        </li><br>
+                        <li>
+                            Minimum percentage of attendance prescribed by the University is 85% or as may be prescribed
+                            by the university from time to time. The students who fall short of attendance will be
+                            detained.
+                        </li><br>
+                        <li>
+                            Indulging in ragging in the campus & hostel punishable according to Law.
+                        </li><br>
+                        <li>
+                            I personally visited the campus & I am satisfied with the infrastructure, and other
+                            facilities in the campus. So, I am willing to take admission in your institute.
+                        </li>
+                    </ol>
+                    <br>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <span id="date">Date :</span>
+                    <span id="place">Place :</span>
+                </div>
+                <br>
+                <div class="col-12  d-flex align-items-center justify-content-center">
+                    <div class="form-check  ">
+                        <input class=" border border-secondary rounded form-check-input" onclick="getDate()"
+                            type="checkbox" value="" id="checkBox" required>
+                        <label class="form-check-label" for="checkBox">
+                            Agree to terms and conditions
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab ">
+                <h1>Review</h1>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Check List</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <ol>
+                                    <li class="li">Hall ticket of CET and Admission alotment order of CET/COMED-K AIEEE
+                                    </li>
+                                    <li class="li">S.S.L.C Marks Card</li>
+                                    <li class="li">PUC / DIPLOMA Marks Card</li>
+                                    <li class="li">Migration CErtificate From previous Board / University </li>
+                                    <li c lass="li">Transfer Certificate / Leaving Certificate from Previous College
+                                    </li>
+                                    <li c lass="li">Valid Cast and Income Certificate </li>
+                                    <li c lass="li">Study Certificate</li>
+                                    <li c lass="li">Adhar Card Copy</li>
+                                    <li c lass="li">Photo 2</li>
+                                </ol>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr>
+            <div style="text-align:center;margin-top:40px;height:20px;">
+                <span class="step text-center"></span>
+                <span class="step text-center"></span>
+                <span class="step text-center"></span>
+                <span class="step text-center"></span>
+                <span class="step text-center"></span>
+            </div>
+            <div class="d-flex justify-content-around gap-3">
+                <button id="prevBtn" class="btn btn-outline-secondary" onclick="nextPrev(-1)">
+                    Previous
+                </button>
+                <button id="Submit" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Submit
+                </button>
+
+                <button id="nextBtn" class="btn btn-outline-secondary" onclick="nextPrev(1)">
+                    Next
+                </button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+    <script>
+        var currentTab = 0;
+        showTab(currentTab);
+        var form = false;
+
+        function showTab(n) {
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "block";
+
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").style.display = "none ";
+                document.getElementById("Submit").style.display = "inline";
+            }
+            else {
+                document.getElementById("Submit").style.display = "none ";
+                document.getElementById("nextBtn").style.display = "inline";
+            }
+            fixStepIndicator(n)
+        }
+
+        function nextPrev(n) {
+            var x = document.getElementsByClassName("tab");
+            // if (!validateForm() && n == 1) return false;
+            x[currentTab].style.display = "none";
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+                document.getElementById("regForm").submit();
+                return false;
+            }
+            showTab(currentTab);
+
+        }
+        function fixStepIndicator(n) {
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            x[n].className += " active";
+        }
+
+        function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            for (i = 0; i < y.length; i++) {
+                if (y[i].value == "") {
+                    y[i].className += " invalid";
+                    valid = false;
+                }
+            }
+
+            return valid;
+        }
+
+        function addDiploma() {
+            document.getElementsByClassName("divDiploma")[0].style.display = "block";
+        }
+
+        function delDiploma() {
+            alert("reached")
+            document.getElementsByClassName("divDiploma")[0].style.display = " none";
+            document.getElementById("diplomaBranch").value = "Other";
+            document.getElementById("dipPassYear").value = "-1";
+            document.getElementById("dipCollegeName").value = "none";
+            document.getElementById("dipSemMarks").value = "-1";
+            document.getElementById("dipSemPercentage").value = "-1";
+            document.getElementById("dcetRank").value = "-1";
+        }
+
+        function calculate() {
+            var physics = parseInt(document.getElementById("physics").value);
+            var math = parseInt(document.getElementById("mathemetics").value);
+            var bio = parseInt(document.getElementById("biology").value);
+            if (physics > 100 || math > 100 || bio > 100) {
+                alert("invalid Marks");
+                return
+            }
+            document.getElementById("totalMarks").value = (physics + math + bio);
+            document.getElementById("percentage").value = ((physics + math + bio) / 3);
+        }
+
+
+        function clearAll() {
+            document.getElementById("physics").value = "0";
+            (document.getElementById("mathemetics").value) = 0;
+            (document.getElementById("biology").value) = 0;
+            document.getElementById("totalMarks").value = 0;
+            document.getElementById("percentage").value = 0;
+        }
+        function getDate() {
+
+            n = new Date();
+            y = n.getFullYear();
+            m = n.getMonth() + 1;
+            d = n.getDate();
+            document.getElementById("date").innerHTML = "Date :" + m + "/" + d + "/" + y;
+            document.getElementById("place").innerHTML = "Place : Belagavi";
+            document.getElementById("checkBox").value = "Set";
+        }
+    </script>
+    <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

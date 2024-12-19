@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Mystyles/beautify.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid ">
+            <a class="navbar-brand" title="colege name" href="#">SGBIT</a>
+            <div class="center">
+
+                <div class="nav-item center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-person-circle m-2" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg><a class="nav-link" href="#" id="user"></a></div>
+                <div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse  justify-content-between" id="navbarNav">
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../Components/home_page.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" id="admission" href="../Components/admission.html">Admission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="admission" href="../Components/get_1_fees_details.html">Fees
+                                Payment</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" id="login_nav">
+                            <a class="nav-link" aria-disabled="true" aria-current="page"
+                                href="../Components/login.html">Login</a>
+                        </li>
+                        <li class="nav-item" id="sign_up_nav">
+                            <a class="nav-link" href="../Components/sign_up.html">Sign-Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item" id="logout_nav">
+                            <a class="nav-link" aria-disabled="true" aria-current="page" href="#" id="logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </nav>
+
+
+
+    <div class=" main_body container-fluid glass_blur  ">
+        <div class="container-fluid">
+
+            <form id="eduDetails_1" class="form-control border ">
+
+                <h4 class="h4 text-center">SSLC Details</h4>
+                <hr>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="sslcRegNo" class="form-label">SSLC Registered Number</label>
+                        <input type="text" pattern="[0-9]{11}" class="form-control" placeholder="1234-5678-912"
+                            id="sslcRegNo" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="sslcPercentage" class="form-label">SSLC Percentage</label>
+                        <input type="number" class="form-control" min="60" step=".10" max="100" id="sslcPercentage"
+                            required>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="schoolName" class="form-label"> Name of the School
+                        </label>
+                        <input type="text" class="form-control" id="schoolName" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="schoolBoard" class="form-label"> Name of the SSLC Board Passed
+                        </label>
+                        <input type="text" class="form-control" id="schoolBoard" required>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="schoolState" class="form-label">Select State</label>
+                        <select class="form-select" id="schoolState" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>Karnataka</option>
+                            <option>Maharastra</option>
+                            <option>Kerala</option>
+                            <option>Tamilnadu</option>
+                            <option>Panjab</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="schoolPassYear" class="form-label"> Passing Year
+                        </label>
+                        <input type="number" class="form-control" min="2018" placeholder="2018-2021" max="2021"
+                            id="schoolPassYear" required>
+                    </div>
+                    <!-- <div class="row mt-2">
+                <div class="col-md-4">
+                    <label for="physics" class="form-label">Physics</label>
+                    <input type="number" id="physics" class="form-control" value="0" placeholder="Max 100 Marks"
+                        max="100" min="0" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="mathemetics" class="form-label">Mathemetics</label>
+                    <input type="number" id="mathemetics" class="form-control" value="0" placeholder="Max 100 Marks"
+                        max="100" min="0" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="biology" class="form-label">Chemestry/Bio.Tech/Computer Science /
+                        Biology</label>
+                    <input type="number" id="biology" class="form-control" value="0" placeholder="Max 100 Marks"
+                        max="100" min="0" required>
+                </div>
+
+            </div> -->
+
+                </div>
+
+                <hr>
+
+
+
+
+                <h4 class="h4 text-center">PUC Details</h4>
+                <hr>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="pucRegNo" class="form-label">PUC Registered Number</label>
+                        <input type="text" pattern="[0-9]{3}[0-9]{3}" class="form-control" placeholder="register number"
+                            id="pucRegNo" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pucPercentage" class="form-label">PUC Percentage</label>
+                        <input type="number" class="form-control" min="60" step=".10" max="100" id="pucPercentage"
+                            required>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="collegeName" class="form-label"> Name of the PU College
+                        </label>
+                        <input type="text" class="form-control" id="collegeName" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="collegeBoard" class="form-label"> Name of the Board PUC Passed
+                        </label>
+                        <input type="text" class="form-control" id="collegeBoard" required>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="collegeState" class="form-label">Select State</label>
+                        <select class="form-select" id="collegeState" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>Karnataka</option>
+                            <option>Maharastra</option>
+                            <option>Kerala</option>
+                            <option>Tamilnadu</option>
+                            <option>Panjab</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pucPassYear" class="form-label"> Passing Year
+                        </label>
+                        <input type="number" class="form-control" min="2020" placeholder="2020-24" max="2024"
+                            id="pucPassYear" required>
+                    </div>
+                    <!-- <div class="row mt-2">
+                <div class="col-md-4">
+                    <label for="physics" class="form-label">Physics</label>
+                    <input type="number" id="physics" class="form-control" value="0" placeholder="Max 100 Marks"
+                        max="100" min="0" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="mathemetics" class="form-label">Mathemetics</label>
+                    <input type="number" id="mathemetics" class="form-control" value="0" placeholder="Max 100 Marks"
+                        max="100" min="0" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="biology" class="form-label">Chemestry/Bio.Tech/Computer Science /
+                        Biology</label>
+                    <input type="number" id="biology" class="form-control" value="0" placeholder="Max 100 Marks"
+                        max="100" min="0" required>
+                </div>
+
+            </div> -->
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="totalMarks" class="form-label">Total Marks Obtained out of 300 in any 3 of
+                                (PCMB)</label>
+                            <input type="number" id="totalMarks" class="form-control" placeholder="Max 300 Marks"
+                                min="90" max="300" required value="0">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="PCMBPercentage" class="form-label">Percentage of 3 Subjects</label>
+                            <input type="number" id="PCMBPercentage" class="form-control" placeholder="Max 100 Marks"
+                                min="60" step=".10" max="100" required value="0">
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr>
+                <div class="center mt-4 mb-4">
+                    <button class="btn w-25 btn-outline-warning " type="submit"> Submit </button>
+
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+
+</body>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/jquery/dist/jquery.session.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+<script src="../MyScripts/main.js"></script>
+<script src="../MyScripts/from_1_Edu_details.js"></script>
+
+</html>
